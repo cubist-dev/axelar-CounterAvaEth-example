@@ -31,6 +31,7 @@ contract EthCounterInterface is AxelarExecutable {
         if (function_id == 0) {
             uint256 number = abi.decode(args, (uint256));
             ethCounter.store(number);
+        // inc
         } else if (function_id == 1) {
             ethCounter.inc();
         }
