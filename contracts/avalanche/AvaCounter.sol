@@ -4,9 +4,11 @@ pragma solidity ^0.8.16;
 import "./EthCounter.sol";
 
 contract AvaCounter {
+    /// The EthCounter interface on Avalanche
     EthCounter ethCounter;
     uint256 number;
 
+    /// @param ethCounterAddr The address of the EthCounter interface on Avalanche
     constructor(address ethCounterAddr) {
         ethCounter = EthCounter(ethCounterAddr);
         number = 0;

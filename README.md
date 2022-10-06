@@ -6,8 +6,8 @@ This repository is an example of using Axelar to do cross-chain calls using
 interfaces similar to the ones that Cubist will be generating.
 
 In this simple example, there are two functions (`inc()` and `store(uint256)`)
-in an Ethereum contract that we call from Avalanche through the Axelar
-infrastructure. The contracts that a user would write are
+in an Ethereum contract (`EthCounter`) that we call from Avalanche through the
+Axelar infrastructure. The contracts that a user would write are
 [`EthCounter.sol`](contracts/ethereum/EthCounter.sol) and
 [`AvaCounter.sol`](contracts/avalanche/AvaCounter.sol).
 
@@ -28,3 +28,16 @@ contract that acts as the receiving contract for calls from Axelar. To do so,
 it implements the `_execute()` function, which decodes the function id and
 `bytes` encoding of the arguments. It then matches the function id and invokes
 the corresponding function on the original contract with the decoded arguments.
+
+## Deployment
+
+The deployment of the contracts in this repository has to happen in the
+following order:
+
+- `EthCounter` on Ethereum
+- `EthCounterInterface` on Ethereum (requires the address of
+  (`EthCounter`)
+- `EthCounter` (the interface) on Avalanche (requires the address of
+  `EthCounterInterface`)
+- `AvaCounter` on Avalanche (requires the address of the b`EthCounter`
+  interface)

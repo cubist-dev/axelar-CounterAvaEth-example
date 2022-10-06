@@ -9,15 +9,15 @@ contract EthCounter is AxelarExecutable {
     IAxelarGasService public immutable gasReceiver;
 
     // The destination on Ethereum
-    string ethAddress;
+    string ethCounterInterfaceAddress;
 
     constructor(
         address gateway_,
         address gasReceiver_,
-        string memory ethAddress_
+        string memory ethCounterInterfaceAddress_
     ) AxelarExecutable(gateway_) {
         gasReceiver = IAxelarGasService(gasReceiver_);
-        ethAddress = ethAddress_;
+        ethCounterInterfaceAddress = ethCounterInterfaceAddress_;
     }
 
     // function id 0
@@ -27,11 +27,11 @@ contract EthCounter is AxelarExecutable {
         gasReceiver.payNativeGasForContractCall{value: msg.value}(
             address(this),
             "ethereum",
-            ethAddress,
+            ethCounterInterfaceAddress,
             payload,
             msg.sender
         );
-        gateway.callContract("ethereum", ethAddress, payload);
+        gateway.callContract("ethereum", ethCounterInterfaceAddress, payload);
     }
 
     // function id 1
@@ -41,11 +41,11 @@ contract EthCounter is AxelarExecutable {
         gasReceiver.payNativeGasForContractCall{value: msg.value}(
             address(this),
             "ethereum",
-            ethAddress,
+            ethCounterInterfaceAddress,
             payload,
             msg.sender
         );
-        gateway.callContract("ethereum", ethAddress, payload);
+        gateway.callContract("ethereum", ethCounterInterfaceAddress, payload);
     }
 
     function _execute(
