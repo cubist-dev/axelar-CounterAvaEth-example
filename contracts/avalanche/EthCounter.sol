@@ -20,10 +20,8 @@ contract EthCounter is AxelarExecutable {
         ethCounterInterfaceAddress = ethCounterInterfaceAddress_;
     }
 
-    // function id 0
     function store(uint256 num) external payable {
-        bytes memory args = abi.encode(num);
-        bytes memory payload = abi.encode(0, args);
+        bytes memory payload = abi.encodeWithSignature("store(uint256)", num);
         gasReceiver.payNativeGasForContractCall{value: msg.value}(
             address(this),
             "ethereum",
@@ -34,10 +32,8 @@ contract EthCounter is AxelarExecutable {
         gateway.callContract("ethereum", ethCounterInterfaceAddress, payload);
     }
 
-    // function id 1
     function inc() external payable {
-        bytes memory args = "";
-        bytes memory payload = abi.encode(1, args);
+        bytes memory payload = abi.encodeWithSignature("inc()");
         gasReceiver.payNativeGasForContractCall{value: msg.value}(
             address(this),
             "ethereum",

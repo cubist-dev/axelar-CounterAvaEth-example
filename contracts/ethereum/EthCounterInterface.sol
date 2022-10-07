@@ -24,16 +24,7 @@ contract EthCounterInterface is AxelarExecutable {
         string calldata,
         bytes calldata payload_
     ) internal override {
-        uint256 function_id;
-        bytes memory args;
-        (function_id, args) = abi.decode(payload_, (uint256, bytes));
-        // store
-        if (function_id == 0) {
-            uint256 number = abi.decode(args, (uint256));
-            ethCounter.store(number);
-        // inc
-        } else if (function_id == 1) {
-            ethCounter.inc();
-        }
+        (bool success,) = address(ethCounter).call(payload_);
+        require(success);
     }
 }
