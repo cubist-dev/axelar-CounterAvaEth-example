@@ -22,9 +22,11 @@ function to call is encoded using `abi.encodeWithSignature()`.
 On the Ethereum side there is an
 [`EthCounterInterface.sol`](contracts/ethereum/EthCounterInterface.sol)
 contract that acts as the receiving contract for calls from Axelar. To do so,
-it overrides the `_execute()` function and executes the call stored in the
-payload on the original contract. It then matches the function id and invokes
-the corresponding function on the original contract with the decoded arguments.
+it overrides the `_execute()` function and [executes the call stored in the
+payload on the original
+contract](https://docs.soliditylang.org/en/v0.8.4/types.html#members-of-addresses).
+It then matches the function id and invokes the corresponding function on the
+original contract with the decoded arguments.
 
 
 ## Deployment
