@@ -39,5 +39,5 @@ following order:
   (`EthCounter`)
 - `EthCounter` (the interface) on Avalanche (requires the address of
   `EthCounterInterface`)
-- `AvaCounter` on Avalanche (requires the address of the b`EthCounter`
+- `AvaCounter` on Avalanche (requires the address of the `EthCounter`
   interface)
