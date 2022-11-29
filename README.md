@@ -41,3 +41,38 @@ following order:
   `EthCounterInterface`)
 - `AvaCounter` on Avalanche (requires the address of the `EthCounter`
   interface)
+
+## Testing the example
+
+Build contracts:
+
+```bash
+npm ci
+npx hardhat compile
+```
+
+Set a private key:
+
+```bash
+cp .env.example .env
+```
+
+then update to use your private key.
+
+Start servers (run command in a different terminal or background):
+
+```bash
+node scripts/runLocal.js
+```
+
+Deploy contracts:
+
+```bash
+node scripts/deploy.js
+```
+
+Test contracts/bridging:
+
+```bash
+node scripts/test.js
+```
