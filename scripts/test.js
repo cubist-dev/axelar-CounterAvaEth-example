@@ -32,6 +32,9 @@ async function test(chains, wallet) {
     const gas_limit = 3e5;
     const gas_price = 1;
     const new_val = BigNumber.from(5);
+
+    console.log(`before: ${await eth_counter.retrieve()}`);
+
     await ava_counter.store(new_val, {
         value: BigInt(Math.floor(gas_limit * gas_price)),
     });
@@ -40,11 +43,11 @@ async function test(chains, wallet) {
     });
 
     while (!(await eth_counter.retrieve()).eq(new_val.add(1))) {
-        console.log(`value not updated yet, waiting... (${await eth_counter.retrieve()})`);
-        await sleep(2000);
+        console.log(`value not updated yet, waiting...`);
+        await sleep(1000);
     }
 
-    console.log(`after ${await eth_counter.retrieve()}`);
+    console.log(`after: ${await eth_counter.retrieve()}`);
 }
 
 if (require.main === module) {
