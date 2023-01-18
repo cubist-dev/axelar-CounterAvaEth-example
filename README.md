@@ -3,7 +3,7 @@
 ## Overview
 
 This repository is an example of using Axelar to do cross-chain calls using
-interface contracts similar to the ones that Cubist will be generating. The
+interface contracts similar to the ones that Cubist will generate. The
 example is based on other [Axelar
 examples](https://github.com/axelarnetwork/axelar-local-gmp-examples).
 
