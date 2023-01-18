@@ -47,17 +47,9 @@ following order:
 Build contracts:
 
 ```bash
-npm ci
+npm install
 npx hardhat compile
 ```
-
-Set a private key:
-
-```bash
-cp .env.example .env
-```
-
-then update to use your private key.
 
 Start servers (run command in a different terminal or background):
 
