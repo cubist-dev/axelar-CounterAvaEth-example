@@ -28,7 +28,7 @@ async function test(chains, wallet) {
 
     console.log(`before ${await eth_counter.retrieve()}`);
 
-    // Set the gasLimit to 3e5 (a safe overestimate) and get the gas price.
+    // Set the gas_limit to 3e5 (a safe overestimate) and get the gas price.
     const gas_limit = 3e5;
     const gas_price = 1;
     const new_val = BigNumber.from(5);

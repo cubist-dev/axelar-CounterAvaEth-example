@@ -3,13 +3,16 @@
 ## Overview
 
 This repository is an example of using Axelar to do cross-chain calls using
-interfaces similar to the ones that Cubist will be generating.
+interface contracts similar to the ones that Cubist will be generating. The
+example is based on other [Axelar
+examples](https://github.com/axelarnetwork/axelar-local-gmp-examples).
 
 In this simple example, there are two functions (`inc()` and `store(uint256)`)
 in an Ethereum contract (`EthCounter`) that we call from Avalanche through the
 Axelar infrastructure. The contracts that a user would write are
-[`EthCounter.sol`](contracts/ethereum/EthCounter.sol) and
-[`AvaCounter.sol`](contracts/avalanche/AvaCounter.sol).
+[`EthCounter.sol`](contracts/ethereum/EthCounter.sol) (deployed on Ethereum)
+and [`AvaCounter.sol`](contracts/avalanche/AvaCounter.sol) (deployed on
+Avalanche).
 
 On the Avalanche side there is an
 [`EthCounter.sol`](contracts/avalanche/EthCounter.sol) contract that exposes
